@@ -1,6 +1,8 @@
-package com.example.basedomains.payload;
+package com.example.orderservice.payload;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 
 @NoArgsConstructor

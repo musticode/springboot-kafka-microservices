@@ -3,6 +3,7 @@ package com.example.orderservice.controller;
 import com.example.basedomains.payload.Order;
 import com.example.basedomains.payload.OrderEvent;
 import com.example.orderservice.kafka.OrderProducer;
+import com.example.orderservice.service.OrderService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,12 +15,18 @@ import java.util.UUID;
 @RequestMapping("/api/v1")
 public class OrderController {
 
-    private OrderProducer orderProducer;
+    private final OrderProducer orderProducer;
+    private final OrderService orderService;
 
 
-
-    public OrderController(OrderProducer orderProducer){
+    public OrderController(OrderProducer orderProducer, OrderService orderService){
         this.orderProducer = orderProducer;
+        this.orderService = orderService;
+    }
+
+    @PostMapping("/order")
+    public String order(@RequestBody Order order){
+        return orderService.placeOrder(order);
     }
 
 
