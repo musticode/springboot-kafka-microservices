@@ -1,6 +1,7 @@
 package com.example.emailservice.kafka;
 
 import com.example.basedomains.payload.OrderEvent;
+import com.example.emailservice.dto.EmailDetails;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
